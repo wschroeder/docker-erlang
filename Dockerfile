@@ -25,7 +25,8 @@ RUN ./otp_build autoconf && \
     make install-docs
 
 WORKDIR /root
-RUN rm -rf ${ERL_TOP} && curl -o /usr/local/bin/rebar3 https://s3.amazonaws.com/rebar3/rebar3 && chmod 755 /usr/local/bin/rebar3
+RUN rm -rf ${ERL_TOP} && curl -o /usr/local/bin/rebar3 https://s3.amazonaws.com/rebar3/rebar3 && \
+    chmod 755 /usr/local/bin/rebar3
 
 CMD ["/bin/bash"]
 
