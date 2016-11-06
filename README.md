@@ -12,3 +12,13 @@ How I use this in Linux:
 For Mac OS, you will need to use the socat trick in order to pipe the X11
 display for observer.
 
+
+# Slim
+
+I am also providing a slim version to docker hub that is not the result of an
+automated build because I do not know how to ask hub to automate re-exporting.
+The slim version is the same as the main version, but I ran this command
+locally:
+
+    docker export wschroeder/erlang:19.1.5 | docker import - wschroeder/erlang:19.1.5-slim
+

@@ -26,7 +26,10 @@ RUN ./otp_build autoconf && \
 
 WORKDIR /root
 RUN rm -rf ${ERL_TOP} && curl -o /usr/local/bin/rebar3 https://s3.amazonaws.com/rebar3/rebar3 && \
-    chmod 755 /usr/local/bin/rebar3
+    chmod 755 /usr/local/bin/rebar3 && \
+    apt-get clean && \
+    apt-get remove $(dpkg -l | awk '{print $2}' | grep '\-dev') && \
+    apt-get autoremove
 
 CMD ["/bin/bash"]
 
